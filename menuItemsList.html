@@ -1,8 +1,12 @@
 
 
-<ul ng-repeat="item in itemsCtrl.found">
+<ol ng-repeat="item in itemsCtrl.found">
 
-  {{item.name}} <br/>
-  {{item.description}} <br/>
-
-</ul>
+  <li>
+    <span><b><i>Name</i></b>: {{item.name}} <br/>
+          <b><i>Description</i></b>: {{item.description}} <br/>
+          <b><i>Short Name</i></b>: {{item.s_name}}</span>
+          <button ng-click="itemsCtrl.onRemove({index: $index});">Remove Item</button>
+  </li>
+<ol>
+  

@@ -4,6 +4,13 @@
     <title>Narrow Down Your Menu Choice</title>
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
+    <style>
+    .table{
+      display: block;
+      border: 1px solid black;
+      align: center;
+    }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
@@ -20,14 +27,18 @@
     </div>
 
     <br/>
+    <br/>
+    <br/>
 
 
     <!-- found-items should be implemented as a component -->
 
-        <div class="form-group">
-            <found-items>
+        <div class="table">
+            <found-items found = "itemsCtrl.found"
+            on-remove="itemsCtrl.removeItem(index)">
 
             </found-items>
+            <div class="error" ng-if="itemsCtrl.isEmptyMenu()">Nothing Found!</div>
         </div>
 
   </div>
