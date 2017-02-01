@@ -41,6 +41,7 @@ function NarrowItDownControllerFn(MenuSearchService){
         promise.then(function(items){
             //console.log(items);
             itemsCtrl.found = items;
+          //  console.log(itemsCtrl.found);
             if(itemsCtrl.found === undefined || itemsCtrl.found.length === 0){
                   itemsCtrl.errorMessage = "Nothing Found";
             } else{
@@ -58,7 +59,7 @@ function NarrowItDownControllerFn(MenuSearchService){
 
     //Checking for empty array
     itemsCtrl.isEmptyMenu = function(){
-      console.log("here");
+      //console.log("here");
       if(itemsCtrl.found === undefined || itemsCtrl.found.length === 0){
             return true;
       } else{
@@ -83,7 +84,10 @@ function MenuSearchService($http, ApiBasePath) {
                     var i, matchedItems = [];
                     for(i=0;i<allMenuItems.length;i++){
                       var itemDescription = allMenuItems[i].description;
-                    //  console.log(itemDescription);
+                      //console.log(searchTerm);
+                      if(searchTerm=== undefined || searchTerm===''){
+                        return matchedItems;
+                      }
 
                       if(itemDescription.toLowerCase().indexOf(searchTerm) !== -1){
                         var item ={
