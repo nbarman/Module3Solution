@@ -41,6 +41,11 @@ function NarrowItDownControllerFn(MenuSearchService){
         promise.then(function(items){
             //console.log(items);
             itemsCtrl.found = items;
+            if(itemsCtrl.found === undefined || itemsCtrl.found.length === 0){
+                  itemsCtrl.errorMessage = "Nothing Found";
+            } else{
+                  itemsCtrl.errorMessage = "";
+            }
             //console.log(itemsCtrl.found);
         });
         };
@@ -53,7 +58,7 @@ function NarrowItDownControllerFn(MenuSearchService){
 
     //Checking for empty array
     itemsCtrl.isEmptyMenu = function(){
-
+      console.log("here");
       if(itemsCtrl.found === undefined || itemsCtrl.found.length === 0){
             return true;
       } else{

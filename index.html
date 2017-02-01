@@ -38,8 +38,9 @@
             on-remove="itemsCtrl.removeItem(index)">
 
             </found-items>
-            <div class="error" ng-if="itemsCtrl.isEmptyMenu()">Nothing Found!</div>
+
         </div>
+            <div class="error">{{itemsCtrl.errorMessage}}</div>
 
   </div>
 
